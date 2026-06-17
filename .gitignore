@@ -1,0 +1,20 @@
+# Rust
+backend/target/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+ai-engine/venv/
+
+# SQLite
+*.db-journal
+*.db-wal
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/

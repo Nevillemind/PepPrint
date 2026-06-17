@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PepPrint — AI-Powered Blood Work Analysis & Peptide Recommendations</title>
+<meta name="description" content="PepPrint analyzes your blood work using AI to deliver personalized peptide therapy recommendations. Not guesswork — precision based on YOUR data.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23cc2a2a'/><text x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='14' font-weight='700' fill='white'>P</text></svg>">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--white:#fff;--off-white:#f8f9fb;--light-gray:#f1f3f6;--mid-gray:#e5e8ed;--border:#dfe2e8;--text:#0f1724;--text-secondary:#3d4a5c;--text-muted:#7a8599;--red:#cc2a2a;--red-deep:#a61e1e;--red-light:#e84040;--red-bg:#fef7f7;--red-border:#f5d5d5;--blue:#1a5bc4;--blue-bg:#e8f0fe;--navy:#0c1a32}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--white);color:var(--text-secondary);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Nav */
+.nav-wrap{border-bottom:1px solid var(--border);background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100}
+.nav{max-width:1200px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
+.bits-logo-nav{height:28px;width:auto;object-fit:contain;margin-right:8px}
+.nav-logo-divider{width:1px;height:18px;background:var(--mid-gray)}
+.nav-logo-text{font-size:13px;font-weight:600;letter-spacing:0.5px;color:var(--text-muted)}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text-secondary);font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{background:var(--red);color:#fff!important;padding:8px 20px;border-radius:6px;font-weight:600;transition:background 0.2s}
+.nav-cta:hover{background:var(--red-deep);color:#fff!important}
+
+/* Hero */
+.hero{padding:100px 32px 80px;text-align:center;max-width:900px;margin:0 auto;position:relative;background:linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)),url('scientist-bg.jpg') center/cover no-repeat}
+.hero-title{font-size:clamp(48px,8vw,80px);font-weight:800;letter-spacing:-2px;line-height:1.05;background:linear-gradient(135deg,#cc2a2a 0%,#cc2a2a 25%,#b84a4a 50%,#8a8a8a 75%,#6b6b6b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:24px}
+.hero-sub{font-size:20px;color:var(--text-secondary);line-height:1.6;max-width:650px;margin:0 auto 36px}
+.hero-sub strong{color:var(--red)}
+.hero-buttons{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 36px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;cursor:pointer;transition:all 0.2s;border:none;display:inline-block}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:var(--red-deep);transform:translateY(-1px);box-shadow:0 4px 12px rgba(204,42,42,0.3)}
+.btn-secondary{background:var(--white);color:var(--red);border:2px solid var(--red-border)}
+.btn-secondary:hover{background:var(--red-bg)}
+
+/* Section Shared */
+.section{padding:80px 32px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--red);margin-bottom:12px}
+.section-title{font-size:36px;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:-0.5px}
+.section-desc{font-size:17px;color:var(--text-secondary);max-width:600px;line-height:1.7}
+
+/* Value Prop */
+.value-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:48px}
+.value-card{background:var(--off-white);border-radius:12px;padding:40px;border:1px solid var(--border)}
+.value-card-bad{background:var(--red-bg);border-color:var(--red-border)}
+.value-card h3{font-size:20px;font-weight:700;color:var(--text);margin-bottom:12px}
+.value-card p{font-size:15px;line-height:1.7;color:var(--text-secondary)}
+.value-card .icon-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;display:block}
+.value-card-bad .icon-label{color:var(--red)}
+.value-card-good .icon-label{color:var(--blue)}
+
+/* How It Works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+.step{text-align:center;padding:32px 24px}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--red-bg);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;margin:0 auto 20px}
+.step h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px}
+.step p{font-size:14px;color:var(--text-secondary);line-height:1.6}
+
+/* Portals */
+.portal-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+.portal-card{border-radius:12px;border:1px solid var(--border);overflow:hidden}
+.portal-card-header{padding:32px;border-bottom:1px solid var(--border)}
+.portal-card-header h3{font-size:20px;font-weight:700;color:var(--text);margin-bottom:8px}
+.portal-card-header p{font-size:14px;color:var(--text-muted)}
+.portal-card-body{padding:24px 32px 32px}
+.portal-card-body ul{list-style:none}
+.portal-card-body li{font-size:14px;color:var(--text-secondary);padding:8px 0;padding-left:24px;position:relative}
+.portal-card-body li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700}
+.portal-card.pro .portal-card-body li::before{color:var(--red)}
+
+/* CTA */
+.cta{background:var(--navy);color:#fff;text-align:center;padding:80px 32px}
+.cta h2{font-size:36px;font-weight:700;margin-bottom:16px}
+.cta p{font-size:18px;color:rgba(255,255,255,0.7);margin-bottom:32px;max-width:600px;margin-left:auto;margin-right:auto}
+.cta .btn-primary{background:var(--red);box-shadow:0 4px 20px rgba(204,42,42,0.4)}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);padding:40px 32px}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{display:flex;align-items:center;gap:10px}
+.footer-logo-bits{width:24px;height:24px;background:var(--text);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;font-family:Georgia,serif}
+.footer-text{font-size:13px;color:var(--text-muted)}
+
+/* Responsive */
+@media(max-width:768px){
+  .value-grid,.portal-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .hero{padding:60px 20px 50px}
+  .hero-title{font-size:clamp(36px,10vw,56px)}
+  .nav{padding:0 20px}
+  .nav-links{display:none}
+  .footer-inner{flex-direction:column;gap:16px;text-align:center}
+}
+
+/* Divider */
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+.bg-off{background:var(--off-white)}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<div class="nav-wrap">
+<nav class="nav">
+<a href="#" class="nav-logo">
+<img src="bits-logo.png" alt="BITS" class="bits-logo-nav">
+</a>
+<ul class="nav-links">
+<li><a href="#how">How It Works</a></li>
+<li><a href="#difference">The Difference</a></li>
+<li><a href="#portals">For Patients & Providers</a></li>
+<li><a href="#cta" class="nav-cta">Get Started</a></li>
+</ul>
+</nav>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+<h1 class="hero-title">PepPrint</h1>
+<p class="hero-sub">Most peptide providers prescribe based on <strong>symptoms</strong> alone. PepPrint analyzes <strong>your actual blood work</strong> — delivering personalized peptide recommendations grounded in your biomarkers, not guesswork.</p>
+<div class="hero-buttons">
+<a href="#cta" class="btn btn-primary">Get Your Peptide Analysis</a>
+<a href="#how" class="btn btn-secondary">See How It Works</a>
+</div>
+</section>
+
+<hr class="divider">
+
+<!-- The Difference -->
+<section class="section" id="difference">
+<div class="section-inner">
+<p class="section-label">Why PepPrint is Different</p>
+<h2 class="section-title">Your blood tells the real story.</h2>
+<p class="section-desc">Most peptide clinics prescribe based on what you describe — your symptoms, your goals, your word. We take a different approach.</p>
+
+<div class="value-grid">
+<div class="value-card value-card-bad">
+<span class="icon-label">The Typical Approach</span>
+<h3>Symptoms → Prescription</h3>
+<p>A clinic listens to your symptoms and prescribes a standard peptide protocol. No lab work. No biomarker analysis. What you describe might not be what your body actually needs.</p>
+</div>
+<div class="value-card value-card-good">
+<span class="icon-label">The PepPrint Approach</span>
+<h3>Blood Work → AI Analysis → Precision Protocol</h3>
+<p>Your blood work reveals exactly what's happening inside your body. PepPrint's AI engine maps your biomarkers to the precise peptides your physiology calls for — personalized to you, not a template.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How It Works -->
+<section class="section bg-off" id="how">
+<div class="section-inner">
+<p class="section-label">How It Works</p>
+<h2 class="section-title">Three steps to your personalized protocol.</h2>
+
+<div class="steps">
+<div class="step">
+<div class="step-num">1</div>
+<h3>Order Your Test</h3>
+<p>Choose from our panel of at-home blood test kits. Delivered to your door. Simple finger-prick collection. Prepaid return shipping included.</p>
+</div>
+<div class="step">
+<div class="step-num">2</div>
+<h3>Submit Your Results</h3>
+<p>Your blood work results flow directly to our AI engine. Secure. Encrypted. Nothing shared without your permission.</p>
+</div>
+<div class="step">
+<div class="step-num">3</div>
+<h3>Get Your Protocol</h3>
+<p>PepPrint's AI analyzes your biomarkers and delivers a personalized peptide protocol with recommended dosing, timing, and follow-up testing.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- For Patients & Providers -->
+<section class="section" id="portals">
+<div class="section-inner">
+<p class="section-label">Built for Everyone</p>
+<h2 class="section-title">One platform. Two experiences.</h2>
+
+<div class="portal-grid">
+<div class="portal-card">
+<div class="portal-card-header">
+<h3>PepPrint</h3>
+<p>For patients and individuals</p>
+</div>
+<div class="portal-card-body">
+<ul>
+<li>Order at-home blood test kits</li>
+<li>AI-powered peptide analysis</li>
+<li>Personalized protocol recommendations</li>
+<li>Track your biomarkers over time</li>
+<li>Private, secure, and built on your data</li>
+</ul>
+</div>
+</div>
+<div class="portal-card pro">
+<div class="portal-card-header">
+<h3>PepPrint Pro</h3>
+<p>For physicians and providers</p>
+</div>
+<div class="portal-card-body">
+<ul>
+<li>Patient management dashboard</li>
+<li>Biomarker trend visualization</li>
+<li>Clinical decision support tools</li>
+<li>Telemedicine integration</li>
+<li>Evidence-based protocol library</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+<h2>Ready to see what your blood work reveals?</h2>
+<p>Stop guessing. Start knowing. Get peptide recommendations built on YOUR biomarkers — not a one-size-fits-all protocol.</p>
+<a href="#" class="btn btn-primary">Get Started With PepPrint</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-inner">
+<div class="footer-logo">
+<img src="bits-logo.png" alt="BITS" style="height:20px;width:auto;object-fit:contain">
+</div>
+<p class="footer-text">PepPrint is a product of BITS Corp — Blockchain Integrative Technology Solutions. Precision health tools for the next generation of medicine.</p>
+</div>
+</footer>
+
+</body>
+</html>
