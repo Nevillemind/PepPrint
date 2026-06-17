@@ -268,26 +268,37 @@ Each mapping record comprises:
 8. **Evidence Strength:** Confidence score (1-10) based on available clinical evidence, animal studies, and mechanistic plausibility;
 9. **Contraindication Flags:** Known contraindications, drug interactions, or caution indicators;
 
-**Core Biomarker-to-Peptide Mappings (Representative, Not Exhaustive):**
+**Core Biomarker-to-Peptide Mappings (Representative, Not Exhaustive — 27+ peptides, 11+ biomarkers):**
 
 | Biomarker | Deviation | Optimal Range | Mapped Peptide(s) | Compatibility |
 |-----------|-----------|---------------|-------------------|---------------|
-| hs-CRP | Elevated (>1.0 mg/L) | < 1.0 mg/L | BPC-157, KPV | High |
-| HbA1c | Elevated (>5.4%) | < 5.4% | GLP-1 agonists, Semaglutide | High |
-| Fasting Insulin | Elevated (>5 μIU/mL) | 2-5 μIU/mL | GLP-1, Tirzepatide | High |
+| hs-CRP | Elevated (>1.0 mg/L) | < 1.0 mg/L | BPC-157, KPV, TB-500, VIP, LL-37 | High |
+| HbA1c | Elevated (>5.4%) | < 5.4% | Semaglutide, Tirzepatide, AOD-9604, MOTS-c | High |
+| Fasting Insulin | Elevated (>5 μIU/mL) | 2-5 μIU/mL | Tirzepatide, Semaglutide, MOTS-c, NAD+/NMN | High |
 | IGF-1 | Deficient (age-adjusted) | Age-stratified | Sermorelin, CJC-1295, Ipamorelin | High |
-| Cortisol (AM) | Elevated (>20 μg/dL) | 10-20 μg/dL | DSIP, Epitalon | Medium |
+| Cortisol (AM) | Elevated (>20 μg/dL) | 10-20 μg/dL | DSIP, Epitalon, Selank, Semax | Medium |
 | Cortisol (AM) | Deficient (<5 μg/dL) | 10-20 μg/dL | Sermorelin, CJC-1295 | Medium |
 | TSH | Elevated (>2.5 mIU/L) | 1.0-2.0 mIU/L | Thyroid-supportive peptides | Medium |
 | Free T3 | Deficient (<3.0 pg/mL) | 3.5-4.5 pg/mL | Thyroid-supportive peptides | Medium |
 | Total Testosterone (male) | Deficient (<500 ng/dL) | 500-1000 ng/dL | HCG, Kisspeptin | High |
-| Free Testosterone (male) | Deficient (<80 pg/mL) | 100-200 pg/mL | HCG, CJC-1295 | Medium |
+| Free Testosterone (male) | Deficient (<80 pg/mL) | 100-200 pg/mL | HCG, CJC-1295, PT-141 | Medium |
 | Estradiol (female) | Abnormal | Age-dependent | Kisspeptin, HCG | Medium |
-| Vitamin D (25-OH) | Deficient (<40 ng/mL) | 50-70 ng/mL | General wellness support | Low |
+| Vitamin D (25-OH) | Deficient (<40 ng/mL) | 50-70 ng/mL | LL-37, Melanotan II | Low |
 | Vitamin B12 | Deficient (<400 pg/mL) | 500-1500 pg/mL | General wellness support | Low |
-| Homocysteine | Elevated (>8 μmol/L) | < 8 μmol/L | BPC-157, GHK-Cu | Medium |
-| Collagen markers | Abnormal | Varies | GHK-Cu | High |
+| Homocysteine | Elevated (>8 μmol/L) | < 8 μmol/L | BPC-157, GHK-Cu, Semax, Dihexa, Cerebrolysin, NAD+/NMN | Medium |
+| ALT/AST | Elevated (>30 U/L) | < 25 U/L | BPC-157, SS-31 | Medium |
+| Collagen markers | Abnormal | Varies | GHK-Cu, TB-500 | High |
 | DHEA-S | Deficient (age-adjusted) | Age-stratified | Sermorelin, Epitalon | Medium |
+
+**Peptide Categories Covered (27 peptides):**
+- **Repair & Recovery:** BPC-157, GHK-Cu, TB-500
+- **Anti-Inflammatory / Immune:** KPV, VIP, LL-37, Thymosin Alpha-1
+- **Metabolic / Weight Loss:** Semaglutide, Tirzepatide, AOD-9604, MOTS-c
+- **Hormonal:** Sermorelin, CJC-1295, Ipamorelin, Kisspeptin, HCG, Thyroid peptides
+- **Neurological / Cognitive:** DSIP, Semax, Selank, Dihexa, Cerebrolysin
+- **Longevity / Mitochondrial:** Epitalon, NAD+/NMN, SS-31
+- **Sexual Health:** PT-141
+- **Skin Protection:** Melanotan II
 
 The database is extensible, allowing addition of new biomarker-to-peptide mappings as clinical evidence evolves, new peptides are developed, and new biomarkers are identified through ongoing research.
 
@@ -483,6 +494,42 @@ The applicants reserve the right to pursue continuation, divisional, or continua
 6. **Population Health Analytics:** Aggregated, de-identified analytics providing population-level insights into biomarker trends, peptide protocol effectiveness, and therapeutic outcome patterns;
 
 7. **AI Model Expansion:** The AI analysis engine may incorporate any AI or machine learning model whether now known or hereafter developed, including but not limited to large language models, transformer architectures, graph neural networks, and reinforcement learning systems.
+
+---
+
+### REGULATORY POSITIONING
+
+The present invention is an informational and educational tool designed to provide personalized health insights based on blood biomarker data. The system:
+
+(a) Does NOT diagnose, treat, cure, or prevent any disease, condition, or disorder;
+(b) Does NOT constitute the practice of medicine and does NOT establish a provider-patient relationship;
+(c) Does NOT replace or substitute for the independent clinical judgment of a licensed healthcare provider;
+(d) Generates informational peptide compatibility assessments that are intended SOLELY for educational and informational purposes;
+(e) Requires that all peptide therapy decisions be made by a licensed healthcare provider following independent clinical evaluation;
+(f) Is NOT a medical device as defined under Section 201(h) of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. § 321(h)), is NOT subject to FDA premarket notification or approval requirements, and is NOT intended for use in the diagnosis of disease or other conditions, or in the cure, mitigation, treatment, or prevention of disease;
+(g) Is classified as a general wellness product and/or clinical decision support (CDS) software under applicable FDA guidance documents, including but not limited to FDA's "General Wellness: Policy for Low Risk Devices" (July 2016) and "Clinical Decision Support Software" (September 2022) guidance documents.
+
+The system provides information to assist, not replace, the clinical reasoning of licensed healthcare professionals. All peptide recommendations generated by the system are informational starting points for provider-patient discussion, NOT prescriptions or treatment directives.
+
+---
+
+### PROPRIETARY IMPLEMENTATION BOUNDARY
+
+The present patent application discloses the SYSTEM ARCHITECTURE, COMPONENT INTERACTIONS, and METHODOLOGY sufficient to enable a person having ordinary skill in the art to make and use the invention. However, certain proprietary implementation details that are NOT necessary for enablement of the invention are intentionally maintained as trade secrets and are NOT disclosed in this application.
+
+Specifically, the following categories of implementation detail are maintained as proprietary trade secrets of the applicant:
+
+(a) Specific confidence score calculation algorithms, weightings, and mathematical formulas used in the AI Analysis Engine's compatibility scoring;
+(b) Cross-peptide boost formulas, interaction coefficients, and multi-biomarker correlation calculations;
+(c) Optimal range derivation methodologies, including the specific statistical methods, data sources, and functional medicine references used to determine optimal ranges that are narrower than standard clinical normal ranges;
+(d) AI prompt templates, system instructions, model selection criteria, and inference pipeline configurations used in the AI Analysis Engine's multi-modal processing layer;
+(e) Machine learning model training datasets, hyperparameters, feature engineering specifications, and specific model architectures;
+(f) Specific biomarker deviation threshold values beyond the representative examples disclosed herein;
+(g) Any and all database query optimizations, indexing strategies, and performance-enhancement implementations.
+
+The bifurcation of intellectual property protection — patent protection for the system architecture and methodology, trade secret protection for the specific algorithmic implementations — is an intentional strategic choice by the applicant. The disclosure in this application is complete for enablement purposes while preserving the competitive advantage derived from the proprietary implementation details listed above.
+
+This trade secret designation extends to all versions, iterations, improvements, and derivatives of the listed proprietary elements whether now existing or hereafter developed.
 
 ---
 
